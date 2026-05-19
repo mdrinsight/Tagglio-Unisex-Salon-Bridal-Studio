@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tagglio Unisex Salon & Bridal Studio | Luxury Experience</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* Core Variables */
         :root {
             --primary-gold: #d4af37;
             --dark-gold: #aa841b;
@@ -20,6 +22,7 @@
             --header-height: 80px;
         }
 
+        /* Global Resets */
         * {
             margin: 0;
             padding: 0;
@@ -38,6 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Ambient Glow Effect */
         .ambient-glow {
             position: absolute;
             width: 100%;
@@ -50,6 +54,7 @@
             pointer-events: none;
         }
 
+        /* Header & Navigation */
         header {
             position: fixed;
             top: 0;
@@ -77,7 +82,7 @@
             text-decoration: none;
         }
 
-        nav { display: none; }
+        nav { display: none; } /* Hidden on mobile */
 
         .nav-btn {
             background: transparent;
@@ -98,6 +103,7 @@
             color: var(--bg-black);
         }
 
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -159,6 +165,7 @@
             max-width: 300px;
         }
 
+        /* Generic Sections */
         section {
             padding: 5rem 5% 3rem;
             position: relative;
@@ -169,6 +176,7 @@
         .section-header h2 { font-family: var(--font-luxury); font-size: 2.4rem; color: var(--primary-gold); font-weight: 400; margin-bottom: 0.8rem; letter-spacing: 1px; }
         .section-header p { color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; }
 
+        /* Services Grid */
         .services-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; width: 100%; max-width: 1200px; margin: 0 auto; }
         .service-card { background: var(--surface-gray); border: 1px solid rgba(212, 175, 55, 0.05); padding: 2rem 1.2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
         .service-icon { font-size: 2.2rem; color: var(--primary-gold); margin-bottom: 1.2rem; }
@@ -179,6 +187,7 @@
         .price-name { color: var(--text-light); text-align: left; padding-right: 0.5rem; }
         .price-value { color: var(--primary-gold); font-weight: 600; white-space: nowrap; }
 
+        /* Reviews Grid */
         .reviews { background: #111; }
         .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; width: 100%; max-width: 1200px; margin: 0 auto; }
         .review-card { background: var(--bg-black); padding: 2rem 1.5rem; border-left: 3px solid var(--primary-gold); }
@@ -186,6 +195,7 @@
         .review-text { font-style: italic; color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.2rem; }
         .review-author { font-weight: 600; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
 
+        /* Map Card */
         .map-container { width: 100%; max-width: 800px; margin: 0 auto; border: 1px solid rgba(212,175,55,0.15); background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center/cover; padding: 3rem 1rem; text-align: center; cursor: pointer; transition: all 0.4s ease; }
         .map-marker-icon { font-size: 3rem; color: #ff4d4d; margin-bottom: 1rem; animation: bounce 2s infinite; }
         .map-studio-title { font-family: var(--font-luxury); font-size: 2rem; margin-bottom: 0.6rem; font-weight: 400; }
@@ -221,13 +231,11 @@
         .modal-box {
             background: var(--surface-gray);
             border: 1px solid var(--primary-gold);
-            /* Strict width lock for mobile */
-            width: 90vw; 
+            width: 90vw; /* Strict 90% mobile width */
             max-width: 420px;
             padding: 2rem 1.25rem;
             position: relative;
-            /* Changed animation to prevent scaling bugs */
-            transform: translateY(20px);
+            transform: translateY(20px); /* Clean slide up */
             transition: transform 0.3s ease;
             max-height: 85vh;
             overflow-y: auto;
@@ -284,7 +292,6 @@
             color: var(--text-muted);
         }
 
-        /* Strict Input Lockdown */
         .input-element {
             width: 100%;
             max-width: 100%;
@@ -319,10 +326,15 @@
             box-sizing: border-box;
         }
 
+        /* Footer */
         footer { border-top: 1px solid rgba(212,175,55,0.08); padding: 2.5rem 5%; text-align: center; color: var(--text-muted); font-size: 0.75rem; }
+        
+        /* Map Animation */
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
-        /* Desktop Layout Scaling */
+        /* =========================================
+           DESKTOP SCALING
+           ========================================= */
         @media (min-width: 768px) {
             header { padding: 0 8%; }
             .logo { font-size: 1.8rem; }
@@ -391,3 +403,131 @@
                 <div>
                     <div class="service-icon"><i class="fa-solid fa-sparkles"></i></div>
                     <h3>Skin Luxury</h3>
+                </div>
+                <div class="price-list">
+                    <div class="price-item"><span class="price-name">Premium Hydra Facial</span><span class="price-value">₹2,999</span></div>
+                    <div class="price-item"><span class="price-name">Skin Brightening Infusion</span><span class="price-value">₹1,799</span></div>
+                    <div class="price-item"><span class="price-name">Detox Cleanse Ritual</span><span class="price-value">₹1,199</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="section-header">
+            <h2>Client Testimonials</h2>
+            <p>Read what our real customers have to say</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Best salon experience in town! The bridal work they did for my sister was top-tier. Extremely professional staff and elite premium styling choices."</p>
+                <p class="review-author">- Priya R.</p>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Got a premium global hair coloring done here. The shade choice suggestion was brilliant and it came out exactly as I wanted. Highly recommended!"</p>
+                <p class="review-author">- Arun Kumar</p>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Their premium facials are pure magic. The ambiance is beautifully relaxing, luxurious, and clean. Tagglio is definitely my new go-to styling hub."</p>
+                <p class="review-author">- Meera Krishnan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section" id="location">
+        <div class="section-header">
+            <h2>Visit Our Studio</h2>
+            <p>Tap below to map your route straight to our doorstep</p>
+        </div>
+        <div class="map-container" onclick="window.open('https://maps.app.goo.gl/KRhKxPi1bSvVGCrbA', '_blank')">
+            <div class="map-marker-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h3 class="map-studio-title">Tagglio Unisex Salon</h3>
+            <p class="map-details">Tap anywhere on this panel to immediately launch step-by-step driving instructions inside your native Google Maps application.</p>
+            <div class="map-action-btn">Get Directions <i class="fa-solid fa-arrow-turn-up"></i></div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="bookingOverlay">
+        <div class="modal-box">
+            <div class="modal-close-trigger" id="closeOverlayBtn">×</div>
+            <h3>Book Slot</h3>
+            <p>Priority Studio Schedule</p>
+            <form id="bookingDataForm">
+                <div class="form-layout-group">
+                    <label for="userName">Full Name</label>
+                    <input type="text" id="userName" class="input-element" placeholder="Enter full name" required>
+                </div>
+                <div class="form-layout-group">
+                    <label for="userPhone">Contact Number</label>
+                    <input type="tel" id="userPhone" class="input-element" placeholder="Enter mobile number" required>
+                </div>
+                <div class="form-layout-group">
+                    <label for="selectedService">Core Care Service</label>
+                    <select id="selectedService" class="input-element" required>
+                        <option value="">Select Studio Service...</option>
+                        <option value="Hair Styling / Cut">Hair Styling / Cut</option>
+                        <option value="Luxury Bridal Makeover">Luxury Bridal Makeover</option>
+                        <option value="Skin Luxury Facial">Skin Luxury Facial</option>
+                    </select>
+                </div>
+                <div class="form-layout-group">
+                    <label for="bookingDate">Preferred Date</label>
+                    <input type="date" id="bookingDate" class="input-element" required>
+                </div>
+                <button type="submit" class="form-submit-btn">Confirm via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Tagglio Unisex Salon & Bridal Studio. Engineered For Flawless Display.</p>
+    </footer>
+
+    <script>
+        const overlay = document.getElementById('bookingOverlay');
+        const triggerButtons = document.querySelectorAll('.modal-trigger-action');
+        const dismissTrigger = document.getElementById('closeOverlayBtn');
+        const dataForm = document.getElementById('bookingDataForm');
+
+        // Open Modal
+        triggerButtons.forEach(btn => {
+            btn.addEventListener('click', () => overlay.classList.add('active'));
+        });
+
+        // Close Modal via 'X'
+        dismissTrigger.addEventListener('click', () => overlay.classList.remove('active'));
+
+        // Close Modal via clicking outside the box
+        window.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.classList.remove('active');
+        });
+
+        // Submit Booking Data directly to WhatsApp
+        dataForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const clientName = document.getElementById('userName').value.trim();
+            const clientPhone = document.getElementById('userPhone').value.trim();
+            const clientService = document.getElementById('selectedService').value;
+            const clientDate = document.getElementById('bookingDate').value;
+            
+            const msgPayload = `✨ *NEW STUDIO APPOINTMENT* ✨\n\n` +
+                               `👤 *Client:* ${clientName}\n` +
+                               `📞 *Contact:* ${clientPhone}\n` +
+                               `💇 *Service:* ${clientService}\n` +
+                               `📅 *Date:* ${clientDate}\n\n` +
+                               `_Dispatched directly from your online studio dashboard._`;
+
+            const safePayloadString = encodeURIComponent(msgPayload);
+            const dynamicWhatsAppUrl = `https://wa.me/917339407702?text=${safePayloadString}`;
+            
+            window.open(dynamicWhatsAppUrl, '_blank');
+            overlay.classList.remove('active');
+            dataForm.reset();
+        });
+    </script>
+</body>
+</html>
