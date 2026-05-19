@@ -27,17 +27,17 @@
             scroll-behavior: smooth;
         }
 
-        body {
+        body, html {
             background-color: var(--bg-black);
             color: var(--text-light);
             font-family: var(--font-sans);
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            width: 100%;
         }
 
-        /* Ambient Background Radial Glows */
         .ambient-glow {
             position: absolute;
             width: 100%;
@@ -50,7 +50,6 @@
             pointer-events: none;
         }
 
-        /* Header Navigation */
         header {
             position: fixed;
             top: 0;
@@ -78,9 +77,7 @@
             text-decoration: none;
         }
 
-        nav {
-            display: none;
-        }
+        nav { display: none; }
 
         .nav-btn {
             background: transparent;
@@ -101,7 +98,6 @@
             color: var(--bg-black);
         }
 
-        /* Hero Container */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -163,197 +159,51 @@
             max-width: 300px;
         }
 
-        .cta-btn:hover {
-            background: var(--dark-gold);
-            transform: translateY(-2px);
-        }
-
-        /* Section Layouts */
         section {
             padding: 5rem 5% 3rem;
             position: relative;
             width: 100%;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-header h2 { font-family: var(--font-luxury); font-size: 2.4rem; color: var(--primary-gold); font-weight: 400; margin-bottom: 0.8rem; letter-spacing: 1px; }
+        .section-header p { color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; }
 
-        .section-header h2 {
-            font-family: var(--font-luxury);
-            font-size: 2.4rem;
-            color: var(--primary-gold);
-            font-weight: 400;
-            margin-bottom: 0.8rem;
-            letter-spacing: 1px;
-        }
+        .services-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; width: 100%; max-width: 1200px; margin: 0 auto; }
+        .service-card { background: var(--surface-gray); border: 1px solid rgba(212, 175, 55, 0.05); padding: 2rem 1.2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .service-icon { font-size: 2.2rem; color: var(--primary-gold); margin-bottom: 1.2rem; }
+        .service-card h3 { font-family: var(--font-luxury); font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 400; letter-spacing: 1px; }
 
-        .section-header p {
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
+        .price-list { width: 100%; }
+        .price-item { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; font-size: 0.85rem; border-bottom: 1px dashed rgba(255,255,255,0.08); padding-bottom: 0.4rem; }
+        .price-name { color: var(--text-light); text-align: left; padding-right: 0.5rem; }
+        .price-value { color: var(--primary-gold); font-weight: 600; white-space: nowrap; }
 
-        /* Services Adaptive Microgrids */
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .reviews { background: #111; }
+        .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; width: 100%; max-width: 1200px; margin: 0 auto; }
+        .review-card { background: var(--bg-black); padding: 2rem 1.5rem; border-left: 3px solid var(--primary-gold); }
+        .stars { color: var(--primary-gold); margin-bottom: 1rem; font-size: 0.8rem; letter-spacing: 2px; }
+        .review-text { font-style: italic; color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.2rem; }
+        .review-author { font-weight: 600; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
 
-        .service-card {
-            background: var(--surface-gray);
-            border: 1px solid rgba(212, 175, 55, 0.05);
-            padding: 2rem 1.2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        .map-container { width: 100%; max-width: 800px; margin: 0 auto; border: 1px solid rgba(212,175,55,0.15); background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center/cover; padding: 3rem 1rem; text-align: center; cursor: pointer; transition: all 0.4s ease; }
+        .map-marker-icon { font-size: 3rem; color: #ff4d4d; margin-bottom: 1rem; animation: bounce 2s infinite; }
+        .map-studio-title { font-family: var(--font-luxury); font-size: 2rem; margin-bottom: 0.6rem; font-weight: 400; }
+        .map-details { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+        .map-action-btn { background: transparent; color: var(--text-light); border: 2px solid var(--primary-gold); padding: 0.8rem 1.8rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; }
 
-        .service-icon {
-            font-size: 2.2rem;
-            color: var(--primary-gold);
-            margin-bottom: 1.2rem;
-        }
-
-        .service-card h3 {
-            font-family: var(--font-luxury);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .price-list {
-            width: 100%;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            border-bottom: 1px dashed rgba(255,255,255,0.08);
-            padding-bottom: 0.4rem;
-        }
-
-        .price-name { 
-            color: var(--text-light); 
-            text-align: left;
-            padding-right: 0.5rem;
-        }
-        
-        .price-value { 
-            color: var(--primary-gold); 
-            font-weight: 600; 
-            white-space: nowrap;
-        }
-
-        /* Reviews */
-        .reviews {
-            background: #111;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .review-card {
-            background: var(--bg-black);
-            padding: 2rem 1.5rem;
-            border-left: 3px solid var(--primary-gold);
-        }
-
-        .stars {
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
-            font-style: italic;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .review-author {
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        /* Map Location Card Setup */
-        .map-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid rgba(212,175,55,0.15);
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center/cover;
-            padding: 3rem 1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .map-marker-icon {
-            font-size: 3rem;
-            color: #ff4d4d;
-            margin-bottom: 1rem;
-            animation: bounce 2s infinite;
-        }
-
-        .map-studio-title {
-            font-family: var(--font-luxury);
-            font-size: 2rem;
-            margin-bottom: 0.6rem;
-            font-weight: 400;
-        }
-
-        .map-details {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-        }
-
-        .map-action-btn {
-            background: transparent;
-            color: var(--text-light);
-            border: 2px solid var(--primary-gold);
-            padding: 0.8rem 1.8rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Fixed & Bulletproof Mobile-First Modal Engine */
+        /* =========================================
+           BULLETPROOF MODAL & FORM CSS
+           ========================================= */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -361,7 +211,6 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
-            padding: 12px; /* Strict gutter cutoff boundary protection */
         }
 
         .modal-overlay.active {
@@ -372,34 +221,38 @@
         .modal-box {
             background: var(--surface-gray);
             border: 1px solid var(--primary-gold);
-            width: 100%;
-            max-width: 420px; /* Safe mobile baseline scaling boundary */
-            padding: 2rem 1.5rem;
+            /* Strict width lock for mobile */
+            width: 90vw; 
+            max-width: 420px;
+            padding: 2rem 1.25rem;
             position: relative;
-            transform: scale(0.95);
+            /* Changed animation to prevent scaling bugs */
+            transform: translateY(20px);
             transition: transform 0.3s ease;
-            max-height: 92vh;
+            max-height: 85vh;
             overflow-y: auto;
-            box-sizing: border-box; /* Force forms to render internally */
+            box-sizing: border-box;
+            border-radius: 4px;
         }
 
         .modal-overlay.active .modal-box {
-            transform: scale(1);
+            transform: translateY(0);
         }
 
         .modal-close-trigger {
             position: absolute;
-            top: 0.8rem;
-            right: 1.2rem;
+            top: 1rem;
+            right: 1.25rem;
             color: var(--text-muted);
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
             line-height: 1;
+            z-index: 10;
         }
 
         .modal-box h3 {
             font-family: var(--font-luxury);
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--primary-gold);
             margin-bottom: 0.4rem;
             font-weight: 400;
@@ -409,73 +262,67 @@
         .modal-box p {
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-bottom: 1.8rem;
+            font-size: 0.75rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .form-layout-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
         }
 
         .form-layout-group label {
-            display: block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             color: var(--text-muted);
         }
 
+        /* Strict Input Lockdown */
         .input-element {
             width: 100%;
+            max-width: 100%;
             background: var(--bg-black);
             border: 1px solid rgba(212,175,55,0.3);
             padding: 0.8rem;
             color: var(--text-light);
             font-family: var(--font-sans);
-            font-size: 0.95rem;
-            border-radius: 0;
+            font-size: 0.9rem;
+            border-radius: 2px;
             -webkit-appearance: none;
-            box-sizing: border-box; /* Strict viewport container clamping */
+            box-sizing: border-box;
+            display: block;
         }
 
-        .input-element:focus {
-            outline: none;
-            border-color: var(--primary-gold);
-        }
+        .input-element:focus { outline: none; border-color: var(--primary-gold); }
 
         .form-submit-btn {
             width: 100%;
+            max-width: 100%;
             background: var(--primary-gold);
             color: var(--bg-black);
             border: none;
             padding: 1rem;
             font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 0.5rem;
+            margin-top: 0.8rem;
+            border-radius: 2px;
+            box-sizing: border-box;
         }
 
-        footer {
-            border-top: 1px solid rgba(212,175,55,0.08);
-            padding: 2.5rem 5%;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
+        footer { border-top: 1px solid rgba(212,175,55,0.08); padding: 2.5rem 5%; text-align: center; color: var(--text-muted); font-size: 0.75rem; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* Desktop View Scaler */
+        /* Desktop Layout Scaling */
         @media (min-width: 768px) {
             header { padding: 0 8%; }
             .logo { font-size: 1.8rem; }
@@ -486,6 +333,7 @@
             .hero-title span { font-size: 1.2rem; }
             .services-grid { grid-template-columns: repeat(3, 1fr); }
             .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+            .modal-box { padding: 2.5rem 2rem; }
         }
     </style>
 </head>
@@ -543,127 +391,3 @@
                 <div>
                     <div class="service-icon"><i class="fa-solid fa-sparkles"></i></div>
                     <h3>Skin Luxury</h3>
-                </div>
-                <div class="price-list">
-                    <div class="price-item"><span class="price-name">Premium Hydra Facial</span><span class="price-value">₹2,999</span></div>
-                    <div class="price-item"><span class="price-name">Skin Brightening Infusion</span><span class="price-value">₹1,799</span></div>
-                    <div class="price-item"><span class="price-name">Detox Cleanse Ritual</span><span class="price-value">₹1,199</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="reviews" id="reviews">
-        <div class="section-header">
-            <h2>Client Testimonials</h2>
-            <p>Read what our real customers have to say</p>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">"Best salon experience in town! The bridal work they did for my sister was top-tier. Extremely professional staff and elite premium styling choices."</p>
-                <p class="review-author">- Priya R.</p>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">"Got a premium global hair coloring done here. The shade choice suggestion was brilliant and it came out exactly as I wanted. Highly recommended!"</p>
-                <p class="review-author">- Arun Kumar</p>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">"Their premium facials are pure magic. The ambiance is beautifully relaxing, luxurious, and clean. Tagglio is definitely my new go-to styling hub."</p>
-                <p class="review-author">- Meera Krishnan</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="map-section" id="location">
-        <div class="section-header">
-            <h2>Visit Our Studio</h2>
-            <p>Tap below to map your route straight to our doorstep</p>
-        </div>
-        <div class="map-container" onclick="window.open('https://maps.app.goo.gl/KRhKxPi1bSvVGCrbA', '_blank')">
-            <div class="map-marker-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <h3 class="map-studio-title">Tagglio Unisex Salon</h3>
-            <p class="map-details">Tap anywhere on this panel to immediately launch step-by-step driving instructions inside your native Google Maps application.</p>
-            <div class="map-action-btn">Get Directions <i class="fa-solid fa-arrow-turn-up"></i></div>
-        </div>
-    </section>
-
-    <div class="modal-overlay" id="bookingOverlay">
-        <div class="modal-box">
-            <div class="modal-close-trigger" id="closeOverlayBtn">×</div>
-            <h3>Book Slot</h3>
-            <p>Priority Studio Schedule</p>
-            <form id="bookingDataForm">
-                <div class="form-layout-group">
-                    <label for="userName">Full Name</label>
-                    <input type="text" id="userName" class="input-element" placeholder="Enter full name" required>
-                </div>
-                <div class="form-layout-group">
-                    <label for="userPhone">Contact Number</label>
-                    <input type="tel" id="userPhone" class="input-element" placeholder="Enter mobile number" required>
-                </div>
-                <div class="form-layout-group">
-                    <label for="selectedService">Core Care Service</label>
-                    <select id="selectedService" class="input-element" required>
-                        <option value="">Select Studio Service...</option>
-                        <option value="Hair Styling / Cut">Hair Styling / Cut</option>
-                        <option value="Luxury Bridal Makeover">Luxury Bridal Makeover</option>
-                        <option value="Skin Luxury Facial">Skin Luxury Facial</option>
-                    </select>
-                </div>
-                <div class="form-layout-group">
-                    <label for="bookingDate">Preferred Date</label>
-                    <input type="date" id="bookingDate" class="input-element" required>
-                </div>
-                <button type="submit" class="form-submit-btn">Confirm via WhatsApp</button>
-            </form>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 Tagglio Unisex Salon & Bridal Studio. Engineered For Flawless Display.</p>
-    </footer>
-
-    <script>
-        const overlay = document.getElementById('bookingOverlay');
-        const triggerButtons = document.querySelectorAll('.modal-trigger-action');
-        const dismissTrigger = document.getElementById('closeOverlayBtn');
-        const dataForm = document.getElementById('bookingDataForm');
-
-        triggerButtons.forEach(btn => {
-            btn.addEventListener('click', () => overlay.classList.add('active'));
-        });
-
-        dismissTrigger.addEventListener('click', () => overlay.classList.remove('active'));
-
-        window.addEventListener('click', (e) => {
-            if (e.target === overlay) overlay.classList.remove('active');
-        });
-
-        dataForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const clientName = document.getElementById('userName').value.trim();
-            const clientPhone = document.getElementById('userPhone').value.trim();
-            const clientService = document.getElementById('selectedService').value;
-            const clientDate = document.getElementById('bookingDate').value;
-            
-            const msgPayload = `✨ *NEW STUDIO APPOINTMENT* ✨\n\n` +
-                               `👤 *Client:* ${clientName}\n` +
-                               `📞 *Contact:* ${clientPhone}\n` +
-                               `💇 *Service:* ${clientService}\n` +
-                               `📅 *Date:* ${clientDate}\n\n` +
-                               `_Dispatched directly from your online studio dashboard._`;
-
-            const safePayloadString = encodeURIComponent(msgPayload);
-            const dynamicWhatsAppUrl = `https://wa.me/917339407702?text=${safePayloadString}`;
-            
-            window.open(dynamicWhatsAppUrl, '_blank');
-            overlay.classList.remove('active');
-            dataForm.reset();
-        });
-    </script>
-</body>
-</html>
