@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tagglio Unisex Salon & Bridal Studio | Luxury Experience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -17,6 +17,7 @@
             --text-muted: #a0a0a0;
             --font-luxury: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
+            --header-height: 80px;
         }
 
         * {
@@ -32,31 +33,35 @@
             font-family: var(--font-sans);
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Luxury Background Glows */
-        .glow {
+        /* Ambient Background Radial Glows */
+        .ambient-glow {
             position: absolute;
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, rgba(0,0,0,0) 70%);
             top: 10%;
             right: -100px;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* Header & Navigation */
+        /* Header Navigation - Stabilized for Mobile & PC */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(11, 11, 11, 0.95);
-            backdrop-filter: blur(10px);
+            height: var(--header-height);
+            background: rgba(11, 11, 11, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             z-index: 1000;
-            padding: 1.5rem 5%;
+            padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -64,7 +69,7 @@
 
         .logo {
             font-family: var(--font-luxury);
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
             letter-spacing: 2px;
             color: var(--primary-gold);
@@ -72,70 +77,62 @@
             text-decoration: none;
         }
 
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-gold);
+        nav {
+            display: none; /* Mobile hidden by default */
         }
 
         .nav-btn {
             background: transparent;
             border: 1px solid var(--primary-gold);
             color: var(--primary-gold);
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.2rem;
             font-family: var(--font-sans);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .nav-btn:hover {
+        .nav-btn:hover, .nav-btn:active {
             background: var(--primary-gold);
             color: var(--bg-black);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
-        /* Hero Section */
+        /* Hero Container - Safe Viewport Fluidity */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 10%;
+            padding: calc(var(--header-height) + 2rem) 5% 2rem;
             position: relative;
-            background: linear-gradient(rgba(11,11,11,0.6), rgba(11,11,11,0.9)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+            background: linear-gradient(rgba(11,11,11,0.65), rgba(11,11,11,0.95)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
         }
 
         .hero-content {
             z-index: 1;
-            max-width: 800px;
+            width: 100%;
+            max-width: 850px;
         }
 
         .hero-subtitle {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            letter-spacing: 6px;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
             color: var(--primary-gold);
             text-transform: uppercase;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .hero-title {
             font-family: var(--font-luxury);
-            font-size: 4rem;
+            font-size: 2.6rem;
             font-weight: 400;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 2rem;
             line-height: 1.2;
         }
@@ -143,365 +140,468 @@
         .hero-title span {
             display: block;
             font-family: var(--font-sans);
-            font-size: 1.2rem;
-            letter-spacing: 4px;
+            font-size: 1rem;
+            letter-spacing: 3px;
             color: var(--text-muted);
-            margin-top: 0.5rem;
+            margin-top: 0.6rem;
+            text-transform: uppercase;
         }
 
         .cta-btn {
             background: var(--primary-gold);
             color: var(--bg-black);
             border: none;
-            padding: 1.2rem 3rem;
-            font-size: 0.9rem;
+            padding: 1rem 2rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            width: 100%;
+            max-width: 300px;
         }
 
         .cta-btn:hover {
             background: var(--dark-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
         }
 
-        /* Services Section */
-        .services {
-            padding: 8rem 10% 4rem;
+        /* Generic Section Blueprint Structure */
+        section {
+            padding: 5rem 5% 3rem;
             position: relative;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-header h2 {
             font-family: var(--font-luxury);
-            font-size: 3rem;
+            font-size: 2.4rem;
             color: var(--primary-gold);
             font-weight: 400;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
         }
 
         .section-header p {
             color: var(--text-muted);
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
+        /* Services Adaptive Microgrids */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .service-card {
             background: var(--surface-gray);
             border: 1px solid rgba(212, 175, 55, 0.05);
-            padding: 3rem 2rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            transition: all 0.4s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .service-card:hover {
             border-color: var(--primary-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(-4px);
         }
 
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--primary-gold);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .service-card h3 {
             font-family: var(--font-luxury);
             font-size: 1.8rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 400;
+            letter-spacing: 1px;
         }
 
         .price-list {
-            margin-top: 1.5rem;
-            text-align: left;
+            width: 100%;
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            border-bottom: 1px dashed rgba(255,255,255,0.1);
-            padding-bottom: 0.3rem;
+            align-items: flex-end;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px dashed rgba(255,255,255,0.08);
+            padding-bottom: 0.4rem;
         }
 
-        .price-name { color: var(--text-light); }
-        .price-value { color: var(--primary-gold); font-weight: 600; }
+        .price-name { 
+            color: var(--text-light); 
+            text-align: left;
+            padding-right: 0.5rem;
+        }
+        
+        .price-value { 
+            color: var(--primary-gold); 
+            font-weight: 600; 
+            white-space: nowrap;
+        }
 
-        /* Reviews Section */
+        /* Reviews Block Flow Configuration */
         .reviews {
             background: #111;
-            padding: 8rem 10%;
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .review-card {
             background: var(--bg-black);
-            padding: 2.5rem;
+            padding: 2rem 1.5rem;
             border-left: 3px solid var(--primary-gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .stars {
             color: var(--primary-gold);
             margin-bottom: 1rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
         }
 
         .review-text {
             font-style: italic;
             color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
         }
 
         .review-author {
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 1px;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
-        /* Location Section */
-        .location-section {
-            padding: 8rem 10%;
-            text-align: center;
+        /* Responsive Map Direct Execution Box Setup */
+        .map-section {
+            padding: 5rem 5%;
         }
 
-        .map-wrapper {
-            max-width: 900px;
+        .map-container {
+            width: 100%;
+            max-width: 800px;
             margin: 0 auto;
-            position: relative;
+            border: 1px solid rgba(212,175,55,0.15);
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center/cover;
+            padding: 3rem 1.5rem;
+            text-align: center;
             cursor: pointer;
-            border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 4px;
-            overflow: hidden;
             transition: all 0.4s ease;
         }
 
-        .map-wrapper:hover {
-            box-shadow: 0 0 30px rgba(212,175,55,0.2);
+        .map-container:hover {
             border-color: var(--primary-gold);
+            box-shadow: 0 0 25px rgba(212,175,55,0.15);
         }
 
-        /* Highly Styled Live Simulation Card mimicking a premium Map Integration */
-        .map-placeholder {
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .map-icon {
-            font-size: 3.5rem;
+        .map-marker-icon {
+            font-size: 3rem;
             color: #ff4d4d;
             margin-bottom: 1rem;
             animation: bounce 2s infinite;
         }
 
-        .map-title {
+        .map-studio-title {
             font-family: var(--font-luxury);
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
         }
 
-        .map-subtitle {
+        .map-details {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 2rem;
-            max-width: 500px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .map-btn {
+        .map-action-btn {
             background: transparent;
             color: var(--text-light);
             border: 2px solid var(--primary-gold);
-            padding: 1rem 2.5rem;
-            font-size: 0.85rem;
+            padding: 0.8rem 1.8rem;
+            font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: all 0.3s;
         }
 
-        .map-wrapper:hover .map-btn {
+        .map-container:hover .map-action-btn {
             background: var(--primary-gold);
             color: var(--bg-black);
         }
 
-        /* Booking Modal Setup */
-        .modal {
+        /* Mobile-Safe System Modal Layer */
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.92);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease;
+            padding: 1rem;
         }
 
-        .modal.active {
+        .modal-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
 
-        .modal-content {
+        .modal-box {
             background: var(--surface-gray);
             border: 1px solid var(--primary-gold);
-            width: 90%;
-            max-width: 500px;
-            padding: 3rem 2.5rem;
+            width: 100%;
+            max-width: 460px;
+            padding: 2rem 1.5rem;
             position: relative;
-            transform: scale(0.9);
-            transition: transform 0.4s ease;
+            transform: scale(0.92);
+            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .modal.active .modal-content {
+        .modal-overlay.active .modal-box {
             transform: scale(1);
         }
 
-        .close-modal {
+        .modal-close-trigger {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 1rem;
+            right: 1.2rem;
             color: var(--text-muted);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            transition: color 0.3s;
+            line-height: 1;
+            transition: color 0.2s;
         }
 
-        .close-modal:hover {
+        .modal-close-trigger:hover {
             color: var(--primary-gold);
         }
 
-        .modal-content h3 {
+        .modal-box h3 {
             font-family: var(--font-luxury);
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--primary-gold);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             font-weight: 400;
             text-align: center;
         }
 
-        .modal-content p {
+        .modal-box p {
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
             font-size: 0.8rem;
+            margin-bottom: 1.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            color: var(--text-muted);
         }
 
-        .form-control {
+        .form-layout-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-layout-group label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .input-element {
             width: 100%;
             background: var(--bg-black);
             border: 1px solid rgba(212,175,55,0.2);
-            padding: 0.8rem 1rem;
+            padding: 0.75rem 0.9rem;
             color: var(--text-light);
             font-family: var(--font-sans);
             font-size: 0.9rem;
-            transition: border-color 0.3s;
+            border-radius: 0;
+            -webkit-appearance: none;
+            transition: border-color 0.25s;
         }
 
-        .form-control:focus {
+        .input-element:focus {
             outline: none;
             border-color: var(--primary-gold);
         }
 
-        .submit-btn {
+        .form-submit-btn {
             width: 100%;
             background: var(--primary-gold);
             color: var(--bg-black);
             border: none;
-            padding: 1rem;
-            font-size: 0.9rem;
+            padding: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.3s;
+            margin-top: 0.5rem;
+            transition: background 0.2s;
         }
 
-        .submit-btn:hover {
+        .form-submit-btn:hover {
             background: var(--dark-gold);
         }
 
         footer {
-            border-top: 1px solid rgba(212,175,55,0.1);
-            padding: 3rem 10%;
+            border-top: 1px solid rgba(212,175,55,0.08);
+            padding: 2.5rem 5%;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-7px); }
+            40% { transform: translateY(-12px); }
+            60% { transform: translateY(-6px); }
         }
 
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            header { padding: 1.2rem 5%; }
-            nav { display: none; }
-            .hero-title { font-size: 2.8rem; }
-            .services, .reviews, .location-section { padding: 5rem 5%; }
+        /* ==========================================================================
+           DESKTOP/PC BREAKPOINT RESPONSIVENESS ENGINE (768px and up)
+           ========================================================================== */
+        @media (min-width: 768px) {
+            header {
+                padding: 0 8%;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+            }
+
+            nav a {
+                color: var(--text-light);
+                text-decoration: none;
+                margin-right: 2.5rem;
+                font-size: 0.85rem;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                transition: color 0.25s;
+                font-weight: 500;
+            }
+
+            nav a:hover {
+                color: var(--primary-gold);
+            }
+
+            .hero-title {
+                font-size: 4.2rem;
+                letter-spacing: 4px;
+            }
+
+            .hero-title span {
+                font-size: 1.2rem;
+                letter-spacing: 5px;
+                margin-top: 0.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+                letter-spacing: 7px;
+            }
+
+            section {
+                padding: 7rem 8% 4rem;
+            }
+
+            .section-header h2 {
+                font-size: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 3rem 2rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .review-card {
+                padding: 2.5rem 2rem;
+            }
+
+            .map-container {
+                padding: 4rem 2rem;
+            }
+
+            .modal-box {
+                padding: 3rem 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="glow"></div>
+    <div class="ambient-glow"></div>
 
     <header>
         <a href="#" class="logo">Tagglio</a>
@@ -510,14 +610,14 @@
             <a href="#reviews">Reviews</a>
             <a href="#location">Find Us</a>
         </nav>
-        <button class="nav-btn trigger-booking">Book Now</button>
+        <button class="nav-btn modal-trigger-action">Book Now</button>
     </header>
 
     <section class="hero">
         <div class="hero-content">
             <p class="hero-subtitle">Premium Unisex Experience</p>
             <h1 class="hero-title">Tagglio Salon <span>& Bridal Studio</span></h1>
-            <button class="cta-btn trigger-booking">Reserve Appointment</button>
+            <button class="cta-btn modal-trigger-action">Reserve Appointment</button>
         </div>
     </section>
 
@@ -528,8 +628,10 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
-                <h3>Hair & Styling</h3>
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                    <h3>Hair & Styling</h3>
+                </div>
                 <div class="price-list">
                     <div class="price-item"><span class="price-name">Luxury Haircut</span><span class="price-value">₹450+</span></div>
                     <div class="price-item"><span class="price-name">Global Coloring</span><span class="price-value">₹2,499+</span></div>
@@ -537,8 +639,10 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
-                <h3>Bridal & Makeovers</h3>
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Bridal & Makeovers</h3>
+                </div>
                 <div class="price-list">
                     <div class="price-item"><span class="price-name">HD Bridal Makeup</span><span class="price-value">₹9,999+</span></div>
                     <div class="price-item"><span class="price-name">Airbrush Finish Studio</span><span class="price-value">₹14,999+</span></div>
@@ -546,8 +650,10 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-sparkles"></i></div>
-                <h3>Skin Luxury</h3>
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-sparkles"></i></div>
+                    <h3>Skin Luxury</h3>
+                </div>
                 <div class="price-list">
                     <div class="price-item"><span class="price-name">Premium Hydra Facial</span><span class="price-value">₹2,999</span></div>
                     <div class="price-item"><span class="price-name">Skin Brightening Infusion</span><span class="price-value">₹1,799</span></div>
@@ -581,99 +687,99 @@
         </div>
     </section>
 
-    <section class="location-section" id="location">
+    <section class="map-section" id="location">
         <div class="section-header">
-            <h2>Visit The Studio</h2>
-            <p>Click below to map your dynamic route directly to our doorstep</p>
+            <h2>Visit Our Studio</h2>
+            <p>Tap below to map your route straight to our doorstep</p>
         </div>
-        <div class="map-wrapper" onclick="window.open('https://maps.app.goo.gl/KRhKxPi1bSvVGCrbA', '_blank')">
-            <div class="map-placeholder">
-                <div class="map-icon"><i class="fa-solid fa-location-dot"></i></div>
-                <h3 class="map-title">Tagglio Unisex Salon</h3>
-                <p class="map-subtitle">Click anywhere on this interactive map area to open step-by-step navigation instructions directly inside Google Maps.</p>
-                <div class="map-btn">Get Directions <i class="fa-solid fa-arrow-turn-up"></i></div>
-            </div>
+        <div class="map-container" onclick="window.open('https://maps.app.goo.gl/KRhKxPi1bSvVGCrbA', '_blank')">
+            <div class="map-marker-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h3 class="map-studio-title">Tagglio Unisex Salon</h3>
+            <p class="map-details">Tap anywhere on this panel to immediately launch step-by-step driving instructions inside your native Google Maps application.</p>
+            <div class="map-action-btn">Get Directions <i class="fa-solid fa-arrow-turn-up"></i></div>
         </div>
     </section>
 
-    <div class="modal" id="bookingModal">
-        <div class="modal-content">
-            <div class="close-modal" id="closeModal">&times;</div>
-            <h3>Book Appointment</h3>
-            <p>Provide your basic details to confirm your priority studio slot.</p>
-            <form id="whatsappForm">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="Enter full name" required>
+    <div class="modal-overlay" id="bookingOverlay">
+        <div class="modal-box">
+            <div class="modal-close-trigger" id="closeOverlayBtn">×</div>
+            <h3>Book Slot</h3>
+            <p>Priority Studio Schedule</p>
+            <form id="bookingDataForm">
+                <div class="form-layout-group">
+                    <label for="userName">Full Name</label>
+                    <input type="text" id="userName" class="input-element" placeholder="Enter full name" required>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Contact Number</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="Enter mobile number" required>
+                <div class="form-layout-group">
+                    <label for="userPhone">Contact Number</label>
+                    <input type="tel" id="userPhone" class="input-element" placeholder="Enter mobile number" required>
                 </div>
-                <div class="form-group">
-                    <label for="service">Select Core Care Service</label>
-                    <select id="service" class="form-control" required>
-                        <option value="">Choose Service...</option>
+                <div class="form-layout-group">
+                    <label for="selectedService">Core Care Service</label>
+                    <select id="selectedService" class="input-element" required>
+                        <option value="">Select Studio Service...</option>
                         <option value="Hair Styling / Cut">Hair Styling / Cut</option>
                         <option value="Luxury Bridal Makeover">Luxury Bridal Makeover</option>
                         <option value="Skin Luxury Facial">Skin Luxury Facial</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="date">Preferred Date</label>
-                    <input type="date" id="date" class="form-control" required>
+                <div class="form-layout-group">
+                    <label for="bookingDate">Preferred Date</label>
+                    <input type="date" id="bookingDate" class="input-element" required>
                 </div>
-                <button type="submit" class="submit-btn">Send Booking to WhatsApp</button>
+                <button type="submit" class="form-submit-btn">Confirm via WhatsApp</button>
             </form>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Tagglio Unisex Salon & Bridal Studio. Crafted for Maximum Prestige.</p>
+        <p>© 2026 Tagglio Unisex Salon & Bridal Studio. Engineered For Flawless Display.</p>
     </footer>
 
     <script>
-        const modal = document.getElementById('bookingModal');
-        const openBtns = document.querySelectorAll('.trigger-booking');
-        const closeBtn = document.getElementById('closeModal');
-        const form = document.getElementById('whatsappForm');
+        const overlay = document.getElementById('bookingOverlay');
+        const triggerButtons = document.querySelectorAll('.modal-trigger-action');
+        const dismissTrigger = document.getElementById('closeOverlayBtn');
+        const dataForm = document.getElementById('bookingDataForm');
 
-        // Modal triggers
-        openBtns.forEach(btn => {
-            btn.addEventListener('click', () => modal.classList.add('active'));
+        // Toggle Modal Active Engine State
+        triggerButtons.forEach(btn => {
+            btn.addEventListener('click', () => overlay.classList.add('active'));
         });
 
-        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        dismissTrigger.addEventListener('click', () => overlay.classList.remove('active'));
 
         window.addEventListener('click', (e) => {
-            if(e.target === modal) modal.classList.remove('active');
+            if (e.target === overlay) overlay.classList.remove('active');
         });
 
-        // WhatsApp Routing Logic
-        form.addEventListener('submit', (e) => {
+        // WhatsApp Data Dispatch Router Engine
+        dataForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('date').value;
+            const clientName = document.getElementById('userName').value.trim();
+            const clientPhone = document.getElementById('userPhone').value.trim();
+            const clientService = document.getElementById('selectedService').value;
+            const clientDate = document.getElementById('bookingDate').value;
             
-            // Build the clean API text format string
-            const messageText = `✨ *NEW BOOKING REQUEST* ✨\n\n` +
-                                `👤 *Name:* ${name}\n` +
-                                `📞 *Phone:* ${phone}\n` +
-                                `💇 *Service Selected:* ${service}\n` +
-                                `📅 *Preferred Date:* ${date}\n\n` +
-                                `_Sent securely from your website appointment module._`;
+            // Build text format string payload [cite: 1312]
+            const msgPayload = `✨ *NEW STUDIO APPOINTMENT* ✨\n\n` +
+                               `👤 *Client:* ${clientName}\n` +
+                               `📞 *Contact:* ${clientPhone}\n` +
+                               `💇 *Service:* ${clientService}\n` +
+                               `📅 *Date:* ${clientDate}\n\n` +
+                               `_Dispatched directly from your online studio dashboard._`;
 
-            // Owner's strict WhatsApp configuration link setup
-            const encodedMessage = encodeURIComponent(messageText);
-            const whatsappUrl = `https://wa.me/917339407702?text=${encodedMessage}`;
+            // Process payload into secure URL encoding targets [cite: 1312]
+            const safePayloadString = encodeURIComponent(msgPayload);
+            const dynamicWhatsAppUrl = `https://wa.me/917339407702?text=${safePayloadString}`;
             
-            // Execute seamless window routing redirect
-            window.open(whatsappUrl, '_blank');
-            modal.classList.remove('active');
-            form.reset();
+            // Execute absolute external device routing redirect [cite: 1312]
+            window.open(dynamicWhatsAppUrl, '_blank');
+            
+            // Graceful cleanup and viewport optimization state reset
+            overlay.classList.remove('active');
+            dataForm.reset();
         });
     </script>
 </body>
