@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagglio Unisex Salon & Bridal Studio | Luxury Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --dark-gold: #aa841b;
+            --bg-black: #0b0b0b;
+            --surface-gray: #161616;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --font-luxury: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Luxury Background Glows */
+        .glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(0,0,0,0) 70%);
+            top: 10%;
+            right: -100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-luxury);
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 0.6rem 1.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-gold);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+            position: relative;
+            background: linear-gradient(rgba(11,11,11,0.6), rgba(11,11,11,0.9)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            letter-spacing: 6px;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-luxury);
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .cta-btn {
+            background: var(--primary-gold);
+            color: var(--bg-black);
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .cta-btn:hover {
+            background: var(--dark-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 10% 4rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-luxury);
+            font-size: 3rem;
+            color: var(--primary-gold);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--surface-gray);
+            border: 1px solid rgba(212, 175, 55, 0.05);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-luxury);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .price-list {
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 0.3rem;
+        }
+
+        .price-name { color: var(--text-light); }
+        .price-value { color: var(--primary-gold); font-weight: 600; }
+
+        /* Reviews Section */
+        .reviews {
+            background: #111;
+            padding: 8rem 10%;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: var(--bg-black);
+            padding: 2.5rem;
+            border-left: 3px solid var(--primary-gold);
+        }
+
+        .stars {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Location Section */
+        .location-section {
+            padding: 8rem 10%;
+            text-align: center;
+        }
+
+        .map-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .map-wrapper:hover {
+            box-shadow: 0 0 30px rgba(212,175,55,0.2);
+            border-color: var(--primary-gold);
+        }
+
+        /* Highly Styled Live Simulation Card mimicking a premium Map Integration */
+        .map-placeholder {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .map-icon {
+            font-size: 3.5rem;
+            color: #ff4d4d;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        .map-title {
+            font-family: var(--font-luxury);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .map-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .map-btn {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--primary-gold);
+            padding: 1rem 2.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .map-wrapper:hover .map-btn {
+            background: var(--primary-gold);
+            color: var(--bg-black);
+        }
+
+        /* Booking Modal Setup */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--surface-gray);
+            border: 1px solid var(--primary-gold);
+            width: 90%;
+            max-width: 500px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary-gold);
+        }
+
+        .modal-content h3 {
+            font-family: var(--font-luxury);
+            font-size: 2.2rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .modal-content p {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            background: var(--bg-black);
+            border: 1px solid rgba(212,175,55,0.2);
+            padding: 0.8rem 1rem;
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-gold);
+            color: var(--bg-black);
+            border: none;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--dark-gold);
+        }
+
+        footer {
+            border-top: 1px solid rgba(212,175,55,0.1);
+            padding: 3rem 10%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            header { padding: 1.2rem 5%; }
+            nav { display: none; }
+            .hero-title { font-size: 2.8rem; }
+            .services, .reviews, .location-section { padding: 5rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <header>
+        <a href="#" class="logo">Tagglio</a>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#location">Find Us</a>
+        </nav>
+        <button class="nav-btn trigger-booking">Book Now</button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Premium Unisex Experience</p>
+            <h1 class="hero-title">Tagglio Salon <span>& Bridal Studio</span></h1>
+            <button class="cta-btn trigger-booking">Reserve Appointment</button>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Our Signature Services</h2>
+            <p>Designed for absolute refinement</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                <h3>Hair & Styling</h3>
+                <div class="price-list">
+                    <div class="price-item"><span class="price-name">Luxury Haircut</span><span class="price-value">₹450+</span></div>
+                    <div class="price-item"><span class="price-name">Global Coloring</span><span class="price-value">₹2,499+</span></div>
+                    <div class="price-item"><span class="price-name">Keratin Smoothing</span><span class="price-value">₹3,999+</span></div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+                <h3>Bridal & Makeovers</h3>
+                <div class="price-list">
+                    <div class="price-item"><span class="price-name">HD Bridal Makeup</span><span class="price-value">₹9,999+</span></div>
+                    <div class="price-item"><span class="price-name">Airbrush Finish Studio</span><span class="price-value">₹14,999+</span></div>
+                    <div class="price-item"><span class="price-name">Pre-Bridal Glow Ritual</span><span class="price-value">₹4,999+</span></div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-sparkles"></i></div>
+                <h3>Skin Luxury</h3>
+                <div class="price-list">
+                    <div class="price-item"><span class="price-name">Premium Hydra Facial</span><span class="price-value">₹2,999</span></div>
+                    <div class="price-item"><span class="price-name">Skin Brightening Infusion</span><span class="price-value">₹1,799</span></div>
+                    <div class="price-item"><span class="price-name">Detox Cleanse Ritual</span><span class="price-value">₹1,199</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="section-header">
+            <h2>Client Testimonials</h2>
+            <p>Read what our real customers have to say</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Best salon experience in town! The bridal work they did for my sister was top-tier. Extremely professional staff and elite premium styling choices."</p>
+                <p class="review-author">- Priya R.</p>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Got a premium global hair coloring done here. The shade choice suggestion was brilliant and it came out exactly as I wanted. Highly recommended!"</p>
+                <p class="review-author">- Arun Kumar</p>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-text">"Their premium facials are pure magic. The ambiance is beautifully relaxing, luxurious, and clean. Tagglio is definitely my new go-to styling hub."</p>
+                <p class="review-author">- Meera Krishnan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-section" id="location">
+        <div class="section-header">
+            <h2>Visit The Studio</h2>
+            <p>Click below to map your dynamic route directly to our doorstep</p>
+        </div>
+        <div class="map-wrapper" onclick="window.open('https://maps.app.goo.gl/KRhKxPi1bSvVGCrbA', '_blank')">
+            <div class="map-placeholder">
+                <div class="map-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <h3 class="map-title">Tagglio Unisex Salon</h3>
+                <p class="map-subtitle">Click anywhere on this interactive map area to open step-by-step navigation instructions directly inside Google Maps.</p>
+                <div class="map-btn">Get Directions <i class="fa-solid fa-arrow-turn-up"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <div class="close-modal" id="closeModal">&times;</div>
+            <h3>Book Appointment</h3>
+            <p>Provide your basic details to confirm your priority studio slot.</p>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Select Core Care Service</label>
+                    <select id="service" class="form-control" required>
+                        <option value="">Choose Service...</option>
+                        <option value="Hair Styling / Cut">Hair Styling / Cut</option>
+                        <option value="Luxury Bridal Makeover">Luxury Bridal Makeover</option>
+                        <option value="Skin Luxury Facial">Skin Luxury Facial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+                <button type="submit" class="submit-btn">Send Booking to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tagglio Unisex Salon & Bridal Studio. Crafted for Maximum Prestige.</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('bookingModal');
+        const openBtns = document.querySelectorAll('.trigger-booking');
+        const closeBtn = document.getElementById('closeModal');
+        const form = document.getElementById('whatsappForm');
+
+        // Modal triggers
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', () => modal.classList.add('active'));
+        });
+
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+
+        window.addEventListener('click', (e) => {
+            if(e.target === modal) modal.classList.remove('active');
+        });
+
+        // WhatsApp Routing Logic
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            
+            // Build the clean API text format string
+            const messageText = `✨ *NEW BOOKING REQUEST* ✨\n\n` +
+                                `👤 *Name:* ${name}\n` +
+                                `📞 *Phone:* ${phone}\n` +
+                                `💇 *Service Selected:* ${service}\n` +
+                                `📅 *Preferred Date:* ${date}\n\n` +
+                                `_Sent securely from your website appointment module._`;
+
+            // Owner's strict WhatsApp configuration link setup
+            const encodedMessage = encodeURIComponent(messageText);
+            const whatsappUrl = `https://wa.me/917339407702?text=${encodedMessage}`;
+            
+            // Execute seamless window routing redirect
+            window.open(whatsappUrl, '_blank');
+            modal.classList.remove('active');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
