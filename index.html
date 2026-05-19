@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Core Variables */
+        /* Core System Variables */
         :root {
             --primary-gold: #d4af37;
             --dark-gold: #aa841b;
@@ -22,7 +22,7 @@
             --header-height: 80px;
         }
 
-        /* Global Resets */
+        /* Global Structural Settings */
         * {
             margin: 0;
             padding: 0;
@@ -41,7 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Ambient Glow Effect */
+        /* Ambient Glow Background Element */
         .ambient-glow {
             position: absolute;
             width: 100%;
@@ -54,7 +54,7 @@
             pointer-events: none;
         }
 
-        /* Header & Navigation */
+        /* Top Navigation Header Bar */
         header {
             position: fixed;
             top: 0;
@@ -82,7 +82,7 @@
             text-decoration: none;
         }
 
-        nav { display: none; } /* Hidden on mobile */
+        nav { display: none; } /* Adaptive Desktop Only Nav element */
 
         .nav-btn {
             background: transparent;
@@ -103,7 +103,7 @@
             color: var(--bg-black);
         }
 
-        /* Hero Section */
+        /* Hero Splash Container */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -165,7 +165,12 @@
             max-width: 300px;
         }
 
-        /* Generic Sections */
+        .cta-btn:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Unified Section Formatting */
         section {
             padding: 5rem 5% 3rem;
             position: relative;
@@ -176,7 +181,7 @@
         .section-header h2 { font-family: var(--font-luxury); font-size: 2.4rem; color: var(--primary-gold); font-weight: 400; margin-bottom: 0.8rem; letter-spacing: 1px; }
         .section-header p { color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; }
 
-        /* Services Grid */
+        /* Core Pricing Sections Grid */
         .services-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; width: 100%; max-width: 1200px; margin: 0 auto; }
         .service-card { background: var(--surface-gray); border: 1px solid rgba(212, 175, 55, 0.05); padding: 2rem 1.2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
         .service-icon { font-size: 2.2rem; color: var(--primary-gold); margin-bottom: 1.2rem; }
@@ -187,7 +192,7 @@
         .price-name { color: var(--text-light); text-align: left; padding-right: 0.5rem; }
         .price-value { color: var(--primary-gold); font-weight: 600; white-space: nowrap; }
 
-        /* Reviews Grid */
+        /* Client Testimonial Flow */
         .reviews { background: #111; }
         .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; width: 100%; max-width: 1200px; margin: 0 auto; }
         .review-card { background: var(--bg-black); padding: 2rem 1.5rem; border-left: 3px solid var(--primary-gold); }
@@ -195,7 +200,8 @@
         .review-text { font-style: italic; color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.2rem; }
         .review-author { font-weight: 600; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
 
-        /* Map Card */
+        /* Live Map Routing Framework */
+        .map-section { padding: 5rem 5%; }
         .map-container { width: 100%; max-width: 800px; margin: 0 auto; border: 1px solid rgba(212,175,55,0.15); background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center/cover; padding: 3rem 1rem; text-align: center; cursor: pointer; transition: all 0.4s ease; }
         .map-marker-icon { font-size: 3rem; color: #ff4d4d; margin-bottom: 1rem; animation: bounce 2s infinite; }
         .map-studio-title { font-family: var(--font-luxury); font-size: 2rem; margin-bottom: 0.6rem; font-weight: 400; }
@@ -203,7 +209,7 @@
         .map-action-btn { background: transparent; color: var(--text-light); border: 2px solid var(--primary-gold); padding: 0.8rem 1.8rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; }
 
         /* =========================================
-           BULLETPROOF MODAL & FORM CSS
+           BULLETPROOF MODAL CONTAINER BOX
            ========================================= */
         .modal-overlay {
             position: fixed;
@@ -231,11 +237,11 @@
         .modal-box {
             background: var(--surface-gray);
             border: 1px solid var(--primary-gold);
-            width: 90vw; /* Strict 90% mobile width */
+            width: 90vw; 
             max-width: 420px;
             padding: 2rem 1.25rem;
             position: relative;
-            transform: translateY(20px); /* Clean slide up */
+            transform: translateY(20px); 
             transition: transform 0.3s ease;
             max-height: 85vh;
             overflow-y: auto;
@@ -326,20 +332,19 @@
             box-sizing: border-box;
         }
 
-        /* Footer */
+        /* Footer Definition */
         footer { border-top: 1px solid rgba(212,175,55,0.08); padding: 2.5rem 5%; text-align: center; color: var(--text-muted); font-size: 0.75rem; }
         
-        /* Map Animation */
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
         /* =========================================
-           DESKTOP SCALING
+           CROSS-DEVICE PC DISPLAY MODIFIERS
            ========================================= */
         @media (min-width: 768px) {
             header { padding: 0 8%; }
             .logo { font-size: 1.8rem; }
             nav { display: flex; align-items: center; }
-            nav a { color: var(--text-light); text-decoration: none; margin-right: 2.5rem; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; }
+            nav a { color: var(--text-light); text-decoration: none; margin-right: 2.5rem; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
             nav a:hover { color: var(--primary-gold); }
             .hero-title { font-size: 4.2rem; }
             .hero-title span { font-size: 1.2rem; }
@@ -492,20 +497,19 @@
         const dismissTrigger = document.getElementById('closeOverlayBtn');
         const dataForm = document.getElementById('bookingDataForm');
 
-        // Open Modal
+        // Show layout layers
         triggerButtons.forEach(btn => {
             btn.addEventListener('click', () => overlay.classList.add('active'));
         });
 
-        // Close Modal via 'X'
+        // Hide layout sheets
         dismissTrigger.addEventListener('click', () => overlay.classList.remove('active'));
 
-        // Close Modal via clicking outside the box
         window.addEventListener('click', (e) => {
             if (e.target === overlay) overlay.classList.remove('active');
         });
 
-        // Submit Booking Data directly to WhatsApp
+        // WhatsApp Dynamic Data Link Packing API
         dataForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
