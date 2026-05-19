@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tagglio Unisex Salon & Bridal Studio | Luxury Experience</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -34,6 +34,7 @@
             overflow-x: hidden;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            width: 100%;
         }
 
         /* Ambient Background Radial Glows */
@@ -49,7 +50,7 @@
             pointer-events: none;
         }
 
-        /* Header Navigation - Stabilized for Mobile & PC */
+        /* Header Navigation */
         header {
             position: fixed;
             top: 0;
@@ -78,7 +79,7 @@
         }
 
         nav {
-            display: none; /* Mobile hidden by default */
+            display: none;
         }
 
         .nav-btn {
@@ -92,16 +93,15 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s ease;
         }
 
-        .nav-btn:hover, .nav-btn:active {
+        .nav-btn:hover {
             background: var(--primary-gold);
             color: var(--bg-black);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
-        /* Hero Container - Safe Viewport Fluidity */
+        /* Hero Container */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -166,13 +166,13 @@
         .cta-btn:hover {
             background: var(--dark-gold);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
         }
 
-        /* Generic Section Blueprint Structure */
+        /* Section Layouts */
         section {
             padding: 5rem 5% 3rem;
             position: relative;
+            width: 100%;
         }
 
         .section-header {
@@ -210,17 +210,11 @@
         .service-card {
             background: var(--surface-gray);
             border: 1px solid rgba(212, 175, 55, 0.05);
-            padding: 2.5rem 1.5rem;
+            padding: 2rem 1.2rem;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-4px);
         }
 
         .service-icon {
@@ -263,7 +257,7 @@
             white-space: nowrap;
         }
 
-        /* Reviews Block Flow Configuration */
+        /* Reviews */
         .reviews {
             background: #111;
         }
@@ -281,9 +275,6 @@
             background: var(--bg-black);
             padding: 2rem 1.5rem;
             border-left: 3px solid var(--primary-gold);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
         .stars {
@@ -298,37 +289,26 @@
             color: var(--text-light);
             font-size: 0.9rem;
             margin-bottom: 1.2rem;
-            line-height: 1.5;
         }
 
         .review-author {
             font-weight: 600;
             font-size: 0.8rem;
-            letter-spacing: 1px;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
-        /* Responsive Map Direct Execution Box Setup */
-        .map-section {
-            padding: 5rem 5%;
-        }
-
+        /* Map Location Card Setup */
         .map-container {
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
             border: 1px solid rgba(212,175,55,0.15);
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=crop') center center/cover;
-            padding: 3rem 1.5rem;
+            padding: 3rem 1rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.4s ease;
-        }
-
-        .map-container:hover {
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 25px rgba(212,175,55,0.15);
         }
 
         .map-marker-icon {
@@ -349,9 +329,6 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 2rem;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .map-action-btn {
@@ -361,37 +338,30 @@
             padding: 0.8rem 1.8rem;
             font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 1px;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s;
         }
 
-        .map-container:hover .map-action-btn {
-            background: var(--primary-gold);
-            color: var(--bg-black);
-        }
-
-        /* Mobile-Safe System Modal Layer */
+        /* Fixed & Bulletproof Mobile-First Modal Engine */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.92);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.35s ease;
-            padding: 1rem;
+            transition: opacity 0.3s ease;
+            padding: 12px; /* Strict gutter cutoff boundary protection */
         }
 
         .modal-overlay.active {
@@ -403,13 +373,14 @@
             background: var(--surface-gray);
             border: 1px solid var(--primary-gold);
             width: 100%;
-            max-width: 460px;
+            max-width: 420px; /* Safe mobile baseline scaling boundary */
             padding: 2rem 1.5rem;
             position: relative;
-            transform: scale(0.92);
-            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-            max-height: 90vh;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            max-height: 92vh;
             overflow-y: auto;
+            box-sizing: border-box; /* Force forms to render internally */
         }
 
         .modal-overlay.active .modal-box {
@@ -418,17 +389,12 @@
 
         .modal-close-trigger {
             position: absolute;
-            top: 1rem;
+            top: 0.8rem;
             right: 1.2rem;
             color: var(--text-muted);
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
             line-height: 1;
-            transition: color 0.2s;
-        }
-
-        .modal-close-trigger:hover {
-            color: var(--primary-gold);
         }
 
         .modal-box h3 {
@@ -451,6 +417,7 @@
 
         .form-layout-group {
             margin-bottom: 1.2rem;
+            width: 100%;
         }
 
         .form-layout-group label {
@@ -460,20 +427,19 @@
             letter-spacing: 1px;
             margin-bottom: 0.4rem;
             color: var(--text-muted);
-            font-weight: 500;
         }
 
         .input-element {
             width: 100%;
             background: var(--bg-black);
-            border: 1px solid rgba(212,175,55,0.2);
-            padding: 0.75rem 0.9rem;
+            border: 1px solid rgba(212,175,55,0.3);
+            padding: 0.8rem;
             color: var(--text-light);
             font-family: var(--font-sans);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border-radius: 0;
             -webkit-appearance: none;
-            transition: border-color 0.25s;
+            box-sizing: border-box; /* Strict viewport container clamping */
         }
 
         .input-element:focus {
@@ -486,18 +452,13 @@
             background: var(--primary-gold);
             color: var(--bg-black);
             border: none;
-            padding: 0.9rem;
+            padding: 1rem;
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             margin-top: 0.5rem;
-            transition: background 0.2s;
-        }
-
-        .form-submit-btn:hover {
-            background: var(--dark-gold);
         }
 
         footer {
@@ -506,96 +467,25 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.75rem;
-            letter-spacing: 1px;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-12px); }
-            60% { transform: translateY(-6px); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
-        /* ==========================================================================
-           DESKTOP/PC BREAKPOINT RESPONSIVENESS ENGINE (768px and up)
-           ========================================================================== */
+        /* Desktop View Scaler */
         @media (min-width: 768px) {
-            header {
-                padding: 0 8%;
-            }
-
-            .logo {
-                font-size: 1.8rem;
-            }
-
-            nav {
-                display: flex;
-                align-items: center;
-            }
-
-            nav a {
-                color: var(--text-light);
-                text-decoration: none;
-                margin-right: 2.5rem;
-                font-size: 0.85rem;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
-                transition: color 0.25s;
-                font-weight: 500;
-            }
-
-            nav a:hover {
-                color: var(--primary-gold);
-            }
-
-            .hero-title {
-                font-size: 4.2rem;
-                letter-spacing: 4px;
-            }
-
-            .hero-title span {
-                font-size: 1.2rem;
-                letter-spacing: 5px;
-                margin-top: 0.8rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-                letter-spacing: 7px;
-            }
-
-            section {
-                padding: 7rem 8% 4rem;
-            }
-
-            .section-header h2 {
-                font-size: 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
-
-            .service-card {
-                padding: 3rem 2rem;
-            }
-
-            .reviews-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
-
-            .review-card {
-                padding: 2.5rem 2rem;
-            }
-
-            .map-container {
-                padding: 4rem 2rem;
-            }
-
-            .modal-box {
-                padding: 3rem 2.5rem;
-            }
+            header { padding: 0 8%; }
+            .logo { font-size: 1.8rem; }
+            nav { display: flex; align-items: center; }
+            nav a { color: var(--text-light); text-decoration: none; margin-right: 2.5rem; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; }
+            nav a:hover { color: var(--primary-gold); }
+            .hero-title { font-size: 4.2rem; }
+            .hero-title span { font-size: 1.2rem; }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -742,7 +632,6 @@
         const dismissTrigger = document.getElementById('closeOverlayBtn');
         const dataForm = document.getElementById('bookingDataForm');
 
-        // Toggle Modal Active Engine State
         triggerButtons.forEach(btn => {
             btn.addEventListener('click', () => overlay.classList.add('active'));
         });
@@ -753,7 +642,6 @@
             if (e.target === overlay) overlay.classList.remove('active');
         });
 
-        // WhatsApp Data Dispatch Router Engine
         dataForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
@@ -762,7 +650,6 @@
             const clientService = document.getElementById('selectedService').value;
             const clientDate = document.getElementById('bookingDate').value;
             
-            // Build text format string payload [cite: 1312]
             const msgPayload = `✨ *NEW STUDIO APPOINTMENT* ✨\n\n` +
                                `👤 *Client:* ${clientName}\n` +
                                `📞 *Contact:* ${clientPhone}\n` +
@@ -770,14 +657,10 @@
                                `📅 *Date:* ${clientDate}\n\n` +
                                `_Dispatched directly from your online studio dashboard._`;
 
-            // Process payload into secure URL encoding targets [cite: 1312]
             const safePayloadString = encodeURIComponent(msgPayload);
             const dynamicWhatsAppUrl = `https://wa.me/917339407702?text=${safePayloadString}`;
             
-            // Execute absolute external device routing redirect [cite: 1312]
             window.open(dynamicWhatsAppUrl, '_blank');
-            
-            // Graceful cleanup and viewport optimization state reset
             overlay.classList.remove('active');
             dataForm.reset();
         });
