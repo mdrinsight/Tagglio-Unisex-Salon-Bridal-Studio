@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Tagglio Unisex Salon & Bridal Studio | Luxury Experience</title>
+    <title>Marzoft Salon Demo | Luxury Experience</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -359,7 +359,7 @@
     <div class="ambient-glow"></div>
 
     <header>
-        <a href="#" class="logo">Tagglio</a>
+        <a href="#" class="logo">Marzoft</a>
         <nav>
             <a href="#services">Services</a>
             <a href="#reviews">Reviews</a>
@@ -371,7 +371,7 @@
     <section class="hero">
         <div class="hero-content">
             <p class="hero-subtitle">Premium Unisex Experience</p>
-            <h1 class="hero-title">Tagglio Salon <span>& Bridal Studio</span></h1>
+            <h1 class="hero-title">Marzoft Salon <span>Demo Studio</span></h1>
             <button class="cta-btn modal-trigger-action">Reserve Appointment</button>
         </div>
     </section>
@@ -427,17 +427,17 @@
             <div class="review-card">
                 <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 <p class="review-text">"Best salon experience in town! The bridal work they did for my sister was top-tier. Extremely professional staff and elite premium styling choices."</p>
-                <p class="review-author">- Priya R.</p>
+                <p class="review-author">- Marzoft Demo</p>
             </div>
             <div class="review-card">
                 <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 <p class="review-text">"Got a premium global hair coloring done here. The shade choice suggestion was brilliant and it came out exactly as I wanted. Highly recommended!"</p>
-                <p class="review-author">- Arun Kumar</p>
+                <p class="review-author">- Marzoft Demo</p>
             </div>
             <div class="review-card">
                 <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="review-text">"Their premium facials are pure magic. The ambiance is beautifully relaxing, luxurious, and clean. Tagglio is definitely my new go-to styling hub."</p>
-                <p class="review-author">- Meera Krishnan</p>
+                <p class="review-text">"Their premium facials are pure magic. The ambiance is beautifully relaxing, luxurious, and clean. Marzoft is definitely my new go-to styling hub."</p>
+                <p class="review-author">- Marzoft Demo</p>
             </div>
         </div>
     </section>
@@ -445,12 +445,12 @@
     <section class="map-section" id="location">
         <div class="section-header">
             <h2>Visit Our Studio</h2>
-            <p>Tap below to map your route straight to our doorstep</p>
+            <p>Find us in our premium studio location</p>
         </div>
-        <div class="map-container" onclick="window.open('https://maps.app.goo.gl/KRhKxPi1bSvVGCrbA', '_blank')">
+        <div class="map-container" id="mapContainer">
             <div class="map-marker-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <h3 class="map-studio-title">Tagglio Unisex Salon</h3>
-            <p class="map-details">Tap anywhere on this panel to immediately launch step-by-step driving instructions inside your native Google Maps application.</p>
+            <h3 class="map-studio-title">Marzoft Salon Demo</h3>
+            <p class="map-details">Our physical address is available for reservations. (Demo mode: external redirection is disabled).</p>
             <div class="map-action-btn">Get Directions <i class="fa-solid fa-arrow-turn-up"></i></div>
         </div>
     </section>
@@ -482,13 +482,13 @@
                     <label for="bookingDate">Preferred Date</label>
                     <input type="date" id="bookingDate" class="input-element" required>
                 </div>
-                <button type="submit" class="form-submit-btn">Confirm via WhatsApp</button>
+                <button type="submit" class="form-submit-btn">Confirm Appointment</button>
             </form>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Tagglio Unisex Salon & Bridal Studio. Engineered For Flawless Display.</p>
+        <p>© 2026 Marzoft Salon Demo. Engineered For Flawless Display.</p>
     </footer>
 
     <script>
@@ -496,6 +496,7 @@
         const triggerButtons = document.querySelectorAll('.modal-trigger-action');
         const dismissTrigger = document.getElementById('closeOverlayBtn');
         const dataForm = document.getElementById('bookingDataForm');
+        const mapContainer = document.getElementById('mapContainer');
 
         // Show layout layers
         triggerButtons.forEach(btn => {
@@ -509,26 +510,24 @@
             if (e.target === overlay) overlay.classList.remove('active');
         });
 
-        // WhatsApp Dynamic Data Link Packing API
+        // Clickable map element with navigation disabled
+        mapContainer.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("Map location panel clicked (demo mode active, no redirect).");
+        });
+
+        // Form submission with demo-only visual confirmation
         dataForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             const clientName = document.getElementById('userName').value.trim();
-            const clientPhone = document.getElementById('userPhone').value.trim();
             const clientService = document.getElementById('selectedService').value;
             const clientDate = document.getElementById('bookingDate').value;
             
-            const msgPayload = `✨ *NEW STUDIO APPOINTMENT* ✨\n\n` +
-                               `👤 *Client:* ${clientName}\n` +
-                               `📞 *Contact:* ${clientPhone}\n` +
-                               `💇 *Service:* ${clientService}\n` +
-                               `📅 *Date:* ${clientDate}\n\n` +
-                               `_Dispatched directly from your online studio dashboard._`;
-
-            const safePayloadString = encodeURIComponent(msgPayload);
-            const dynamicWhatsAppUrl = `https://wa.me/917339407702?text=${safePayloadString}`;
+            // Log details and provide confirmation without redirecting
+            console.log("Demo appointment processed for:", clientName, "Service:", clientService, "Date:", clientDate);
+            alert(`Booking Request Received!\nThank you, ${clientName}. Your appointment for ${clientService} on ${clientDate} has been registered locally (Demo Mode).`);
             
-            window.open(dynamicWhatsAppUrl, '_blank');
             overlay.classList.remove('active');
             dataForm.reset();
         });
